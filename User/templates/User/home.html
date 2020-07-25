@@ -1,0 +1,31 @@
+{% extends 'User/template.html' %}
+
+{% block contentView %}
+
+<div class="container-fluid">
+    <center>
+        <div class="row"> 
+            <div class="col-md-4 align-self-center">
+            </div>
+
+            <div class="col-md-4 mt-5 align-self-center">
+                <br>
+                <div class="container">
+                    <div class="jumbotron shadow-lg pop-on-hover">
+                        <h2><b>My Profile</b></h2>
+                        <hr>
+        
+                        <div class="p-4">
+                            <p class="font-weight-bold">Name: {{ name }}</p>
+                            <p class="font-weight-bold">Email: {{ email }}</p>
+                            <p class="font-weight-bold">Phone Number: {{ phone_number }}</p>
+                            <p class="font-weight-bold">Plan: {{ plan }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </center>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Login</title>
+</head>
+
+<body style="background-color: cadetblue;">
+
+    <div class="container-fluid mt-5">
+        <center>
+            <div class="row"> 
+                <div class="col-md-4 align-self-center">
+                </div>
+
+                <div class="col-md-4 align-self-center">
+                    <br>
+                    <div class="container">
+                        <div class="jumbotron shadow-lg pop-on-hover">
+                            <h2><b>Login</b></h2>
+                            {% if messages %}
+                            <br>
+                                {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                            <hr>
+            
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    {{ form.as_p }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <center>
+                                        <button class="btn btn-primary shadow w-100" type="submit">Login</button>	
+                                        <br>
+                                        <br>
+                                        <a href="{% url 'register' %}" class="text-black-80" style="text-decoration: none; padding-top:10px; font-size: 80%;">Don't Have An Account Yet? Sign Up.</a><br>
+                                        <a href="{% url 'reset_password' %}" style="text-decoration: none; padding-top:10px; font-size: 80%;">Forgot Password?</a>
+                                    </center>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </center>
+    </div>
+</body>
+
+</html>
