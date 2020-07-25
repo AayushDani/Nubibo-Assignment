@@ -61,10 +61,10 @@ WSGI_APPLICATION = 'nubibo_assignment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nubibo_assignment',
-        'USER': 'postgres',
-        'PASSWORD': os.environ.get('GMAIL_PASSWORD'),
-        'HOST': 'localhost',
+        'NAME': 'd88582vp04l7de',
+        'USER': 'bpiwylqjhoryil',
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': 'ec2-50-19-26-235.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
