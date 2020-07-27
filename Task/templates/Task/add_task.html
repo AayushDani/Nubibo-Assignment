@@ -1,0 +1,45 @@
+{% extends 'Task/template.html' %}
+
+{% block contentView %}
+
+<div class="container-fluid">
+    <center>
+        <div class="row"> 
+            <div class="col-md-4 align-self-center">
+            </div>
+
+            <div class="col-md-4 align-self-center">
+                <br>
+                <div class="container">
+                    <div class="jumbotron shadow-lg pop-on-hover">
+                        {% if title == "Add Task" %}
+                            <h2><b>Add Task</b></h2>
+                            <hr>
+                        {% else %}
+                            <h2><b>Edit Task</b></h2>
+                            <hr>
+                        {% endif %}
+        
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                {{ form.as_p }}
+                            </fieldset>
+                            <div class="form-group">
+                                <center>
+                                    {% if title == "Add Task" %}
+                                        <button class="btn btn-primary shadow w-100" type="submit">Add Task</button>
+                                    {% else %}
+                                        <button class="btn btn-primary shadow w-100" type="submit">Edit Task</button>
+                                    {% endif %}
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </center>
+</div>
+
+{% endblock %}

@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
 from django.contrib.auth import logout, login, authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User
 
 from .forms import LoginForm, RegistrationForm, UpdateProfileForm
 from .models import UserInformation
+
+import pytz
+from django.utils import timezone
 
 
 def registration(request):
@@ -115,6 +117,10 @@ def homepage(request):
     except:
         messages.warning(request, 'Kindly login before accessing the service.')
         return redirect('login')
+
+    tz_str = request.COOKIES.get('timezone')
+    if tz_str:
+        timezone.activate(pytz.timezone(tz_str))
     
     user_id = request.session["id"]
     user = User.objects.get(pk=user_id)

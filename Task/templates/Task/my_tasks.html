@@ -1,0 +1,47 @@
+{% extends 'Task/template.html' %}
+
+{% block contentView %}
+{% load tz %}
+{% localtime on %}
+
+<div class="container-fluid">
+    <center>
+        <div class="row"> 
+            <div class="col-md-4 align-self-center">
+            </div>
+
+            <div class="col-md-4 mt-5 align-self-center">
+                <br>
+                <div class="container">
+                    <div class="jumbotron shadow-lg pop-on-hover">
+                        <h2><b>My Tasks</b></h2>
+                        <hr>
+                        
+                        {% for task in tasks%}
+                            <div class="card bg-transparent border-success mb-4">
+                                <p class="font-weight-bold mt-2">Task Name: {{ task.name }}</p>
+                                <p class="font-weight-bold">Priority: {{ task.description }}</p>
+                                <p class="font-weight-bold">Status: {{ task.priority }}</p>
+                                <p class="font-weight-bold">Date Added: {{ task.status }}</p>
+                                <p class="font-weight-bold">Date Updated: {{ task.date_added }}</p>
+                                <br>
+                                <p class="font-weight-bold">Description:<br>{{ task.description }}</p>
+                                <br>
+
+                                <center>
+                                    <a href="{{ task.edit_url }}" class="btn btn-success bg-white text-success shadow very-rounded mb-2">Edit Task</a>
+                                    <a href="{{ task.delete_url }}" class="btn btn-danger bg-white text-danger shadow very-rounded mb-2" onclick="return confirm('Are you sure you want to delete this task?')">Delete Task</a>
+                                </center>                  
+                            </div>
+                        {% endfor %}
+
+                        <a href="{% url 'add-task' %}" class="btn btn-succes bg-white text-success border-success">Add Task</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </center>
+</div>
+
+{% endlocaltime %}
+{% endblock %}
