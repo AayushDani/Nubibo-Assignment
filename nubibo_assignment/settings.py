@@ -104,10 +104,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_ROOT = "staticfiles"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "staticfiles"),
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'staticfiles')
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = "/static/"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
