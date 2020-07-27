@@ -2,4 +2,4 @@
 
 Aayush Dani - Assignment Submittion
 
-Hosted On: https://www.nubibo-assignment.ml
+Hosted On: https://www.aayushdani-assignment.ml/
